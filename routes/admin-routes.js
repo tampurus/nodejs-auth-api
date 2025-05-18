@@ -6,9 +6,9 @@ router.get('/welcome', authMiddlware,isAdminUser, (req, res) => {
     res.json({
         message: 'Welcome to the admin page',
         user: {
-            _id: userId, 
-            username,
-            role,
+            _id: req.userInfo.userId, 
+            username: req.userInfo.username,
+            role: req.userInfo.role,
         },
     });
 });
